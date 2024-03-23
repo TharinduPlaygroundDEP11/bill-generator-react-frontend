@@ -61,7 +61,7 @@ function AdminComponent() {
                 className="admin-button text-center d-flex align-items-center justify-content-center border rounded-2"
                 onClick={handleSaveClick}
               >
-                SAVE
+                Save
               </div>
             </div>
           </div>
