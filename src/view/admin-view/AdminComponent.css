@@ -41,10 +41,6 @@
     z-index: 1000;
   }
 
-  .date-picker:active {
-    border: ri;
-  }
-
   .number {
     z-index: 1;
   }

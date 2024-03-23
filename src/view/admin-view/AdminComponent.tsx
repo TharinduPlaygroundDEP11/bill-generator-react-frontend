@@ -12,9 +12,7 @@ function AdminComponent() {
     setSelectedDate(date);
   };
 
-    const handleSaveClick= ()=> {
-        throw new Error("Function not implemented.");
-    }
+  const handleSaveClick = () => {};
 
   return (
     <>
@@ -24,15 +22,18 @@ function AdminComponent() {
 
           <div className="d-flex flex-column justify-content-center align-items-center gap-3">
             <div className="admin-header fs-4 fw-bold">Add Meter Reading</div>
-            <div className="form-floating mb-3 number">
+            <div className="form-floating mb-3">
               <input
                 type="text"
                 className="form-control"
+                id="floatingInput"
+                placeholder="xxxxxxx"
               />
-              <label>Account Number</label>
+              <label htmlFor="floatingInput">Account Number</label>
             </div>
-            <div className="date-picker form-floating mb-3">
+            <div className="date-picker mb-3">
               <DatePicker
+                className="form-control"
                 placeholderText="Select Reading Date"
                 selected={selectedDate}
                 onChange={handleDateChange}
@@ -43,16 +44,23 @@ function AdminComponent() {
               <input
                 type="number"
                 className="form-control"
+                id="floatingInput"
+                placeholder="xxxxxxx"
               />
-              <label>Meter Reading</label>
+              <label htmlFor="floatingInput">Meter Reading</label>
             </div>
+
             <div className="d-flex align-items-center gap-3 mt-2">
-              <div className="admin-button text-center d-flex align-items-center justify-content-center border rounded-2"
-              onClick={()=>navigate('../')}>
+              <div
+                className="admin-button text-center d-flex align-items-center justify-content-center border rounded-2"
+                onClick={() => navigate("../")}
+              >
                 Cancel
               </div>
-              <div className="admin-button text-center d-flex align-items-center justify-content-center border rounded-2"
-              onClick={handleSaveClick}>
+              <div
+                className="admin-button text-center d-flex align-items-center justify-content-center border rounded-2"
+                onClick={handleSaveClick}
+              >
                 SAVE
               </div>
             </div>
