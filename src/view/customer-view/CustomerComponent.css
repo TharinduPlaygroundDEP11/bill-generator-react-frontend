@@ -1,9 +1,9 @@
-.admin-component {
+.customer-component {
     position: absolute;
     top: 90px;
     height: calc(100vh - 90px);
 }
-.admin-button {
+.customer-button {
     width: 100px;
     height: 50px;
     text-align: center;
@@ -11,21 +11,21 @@
     box-shadow: 1px 1px 10px rgb(179, 179, 179);
   }
   
-  .admin-button:hover {
+  .customer-button:hover {
       cursor: pointer;
       background-color: rgb(238, 221, 89);
       box-shadow: 3px 3px 10px rgb(179, 179, 179);
     }
   
-  .admin-items-container {
+  .customer-items-container {
     border-radius: 20px;
     box-shadow: 3px 3px 15px grey;
-    width: 55%;
-    height: 80%;
+    width: 50%;
+    height: 65%;
   }
   
-  .admin-image {
-    background-image: url("/src/assets/images/add-reading.png");
+  .customer-image {
+    background-image: url("/src/assets/images/customer.png");
     background-position: center;
     background-size: contain;
     background-repeat: no-repeat;
@@ -33,15 +33,7 @@
     width: 300px;
   }
   
-  .admin-header {
+  .customer-header {
       color: rgb(110, 15, 47);
-  }
-
-  .date-picker {
-    z-index: 1000;
-  }
-
-  .number {
-    z-index: 1;
   }
   
