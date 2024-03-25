@@ -4,10 +4,24 @@
 
 .bill-container {
     position: absolute;
-    top: 90px;
+    top: 150px;
     width: 50%;
-    height: 80%;
+    height: 65%;
 }
+
 .bill-header {
     width: 100%;
+}
+
+.bill-image {
+    background-image: url("/src/assets/images/customer.png");
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    height: 300px;
+    width: 300px;   
+}
+
+.bill-details {
+    width: 50%;
 }

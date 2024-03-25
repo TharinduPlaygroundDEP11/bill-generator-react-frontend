@@ -25,7 +25,7 @@
   }
   
   .customer-image {
-    background-image: url("/src/assets/images/customer.png");
+    background-image: url("/src/assets/images/bill.png");
     background-position: center;
     background-size: contain;
     background-repeat: no-repeat;

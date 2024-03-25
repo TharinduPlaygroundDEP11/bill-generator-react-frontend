@@ -1,4 +1,6 @@
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
 import { create } from "zustand";
 
 type BillStore = {
@@ -15,8 +17,6 @@ type BillStore = {
   setValues:(accNumber:number)=>void
 };
 
-
-
 export const useBillStore = create<BillStore>((set) => ({
   customerName: "",
   lastDate: "",
@@ -29,6 +29,7 @@ export const useBillStore = create<BillStore>((set) => ({
   thirdRangeAmount: 0,
   totalAmount: 0,
   setValues: async (accNumber) => {
+    
     try {
       const response = await axios.get(`http://localhost:8000/api/get/${accNumber}`);
       const { data } = response;
@@ -44,9 +45,14 @@ export const useBillStore = create<BillStore>((set) => ({
         thirdRangeAmount: data.thirdRangeAmount,
         totalAmount: data.totalAmount,
       });
-      console.log(response);
     } catch (error) {
-      console.log(error);
+        Swal.fire({
+            icon: "error",
+            title: "Error!",
+            text: "Invalid Acount Number!",
+            showConfirmButton: false,
+            timer: 1800
+          });
     }
   },
 }));
