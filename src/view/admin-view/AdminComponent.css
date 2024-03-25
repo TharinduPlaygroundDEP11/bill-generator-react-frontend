@@ -4,8 +4,7 @@
     height: calc(100vh - 90px);
 }
 .admin-button {
-    width: 100px;
-    height: 40px;
+    padding: 5px;
     text-align: center;
     background-color: rgb(255, 236, 95);
     box-shadow: 1px 1px 10px rgb(179, 179, 179);
@@ -44,4 +43,18 @@
   .number {
     z-index: 1;
   }
+
+  @media screen and (min-width: 320px) and (max-width: 720px) {
+    .admin-image {
+      display: none;
+    }
+
+    .admin-items-container {
+      border-radius: 20px;
+      box-shadow: 3px 3px 15px grey;
+      width: 55%;
+      height: 65%;
+    }
+  }
+  
   

@@ -3,16 +3,64 @@ import "./AdminComponent.css";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
 
 function AdminComponent() {
   const navigate = useNavigate();
+  const [accountNumber, setAccountNumber] = useState('');
+  const [reading, setReading] = useState(0);
   const [selectedDate, setSelectedDate] = useState<Date | null>(null);
 
   const handleDateChange = (date: Date) => {
     setSelectedDate(date);
   };
 
-  const handleSaveClick = () => {};
+  const handleSaveClick = async () => {
+    const formattedDate = selectedDate?.toISOString().slice(0, 10);
+    try {
+      const response = await fetch("http://localhost:8000/api/save", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          number: accountNumber,
+          date: formattedDate,
+          value: reading,
+        }),
+      });
+  
+      if (response.status === 201) {
+        navigate("../home");
+        Swal.fire({
+          position: "center",
+          icon: "success",
+          title: "Successfully Saved Reading",
+          showConfirmButton: false,
+          timer: 2500,
+        });
+      } else {
+        Swal.fire({
+          position: "center",
+          icon: "error",
+          title: "Error!",
+          text: "Invalid Input values!",
+          showConfirmButton: false,
+          timer: 2000,
+        });
+        console.log(response);  
+      }
+    } catch (error) {
+      Swal.fire({
+        position: "center",
+        icon: "error",
+        title: "Error!",
+        text: "Check your inputs, They can't be empty!",
+        showConfirmButton: false,
+        timer: 2000,
+      });
+    }
+  };
 
   return (
     <>
@@ -28,6 +76,7 @@ function AdminComponent() {
                 className="form-control"
                 id="floatingInput"
                 placeholder="xxxxxxx"
+                onChange={(e)=>setAccountNumber(e.target.value)}
               />
               <label htmlFor="floatingInput">Account Number</label>
             </div>
@@ -38,6 +87,7 @@ function AdminComponent() {
                 className="form-control"
                 id="floatingInput"
                 placeholder="xxxxxxx"
+                onChange={(e)=>setReading(+e.target.value)}
               />
               <label htmlFor="floatingInput">Meter Reading</label>
             </div>
@@ -48,10 +98,10 @@ function AdminComponent() {
                 placeholderText="Select Reading Date"
                 selected={selectedDate}
                 onChange={handleDateChange}
-                dateFormat="dd-MM-yyyy"
+                dateFormat="yyyy-MM-dd"
               />
             </div>
-            
+
             <div className="d-flex align-items-center gap-3 mt-2">
               <div
                 className="admin-button text-center d-flex align-items-center justify-content-center border rounded-2"

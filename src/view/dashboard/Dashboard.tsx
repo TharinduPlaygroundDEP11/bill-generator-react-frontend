@@ -13,13 +13,13 @@ function Dashboard() {
           <div className="d-flex flex-column justify-content-center align-items-center gap-3">
             <div className="dashboard-header fs-2 fw-bold">Dashboard</div>
             <div
-              className="dashboard-button text-center d-flex align-items-center justify-content-center border"
+              className="dashboard-button text-center d-flex align-items-center justify-content-center border p-2"
               onClick={() => navigate("../admin")}
             >
               Add Meter Reading
             </div>
             <div
-              className="dashboard-button text-center d-flex align-items-center justify-content-center border"
+              className="dashboard-button text-center d-flex align-items-center justify-content-center border p-2"
               onClick={() => navigate("../user")}
             >
               View Bill

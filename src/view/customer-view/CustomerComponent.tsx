@@ -3,7 +3,6 @@ import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { useBillStore } from "../../Store";
 import Swal from "sweetalert2";
-import axios from "axios";
 
 function CustomerComponent() {
   const navigate = useNavigate();
@@ -22,19 +21,45 @@ function CustomerComponent() {
       return;
     } else {
       try {
-        await axios.get(
-          `http://localhost:8000/api/get/${accountNumber}`
-        );
-        billStore.setValues(+accountNumber);
-        navigate("../bill");
+        const response = await fetch(`http://localhost:8000/api/get/${accountNumber}`);
+      
+        if (response.ok) {
+          const data = await response.json();
+      
+          if (data) {
+            billStore.setValues(+accountNumber);
+            navigate("../bill");
+          } else {
+            Swal.fire({
+              icon: "error",
+              title: "Error!",
+              text: "Error",
+              showConfirmButton: false,
+              timer: 1800,
+            });
+          }
+        } else {
+          if (response.status === 404) {
+            Swal.fire({
+              icon: "error",
+              title: "Error!",
+              text: "No records to calculate the bill",
+              showConfirmButton: false,
+              timer: 1800,
+            });
+            
+          } else {
+            Swal.fire({
+              icon: "error",
+              title: "Error!",
+              text: "Invalid Account Number!",
+              showConfirmButton: false,
+              timer: 1800,
+            });;
+          }
+        }
       } catch (error) {
-        Swal.fire({
-          icon: "error",
-          title: "Error!",
-          text: "Invalid Acount Number!",
-          showConfirmButton: false,
-          timer: 1800,
-        });
+        console.log(error);
       }
     }
   };

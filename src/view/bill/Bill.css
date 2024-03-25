@@ -1,27 +1,45 @@
 .bill-bg {
-    background-color: rgb(219, 219, 219);
+  background-color: rgb(219, 219, 219);
 }
 
 .bill-container {
-    position: absolute;
-    top: 150px;
-    width: 50%;
-    height: 65%;
+  position: absolute;
+  top: 150px;
+  width: 50%;
+  height: 65%;
 }
 
 .bill-header {
-    width: 100%;
+  width: 100%;
 }
 
 .bill-image {
-    background-image: url("/src/assets/images/customer.png");
-    background-position: center;
-    background-size: contain;
-    background-repeat: no-repeat;
-    height: 300px;
-    width: 300px;   
+  background-image: url("/src/assets/images/customer.png");
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  height: 300px;
+  width: 300px;
 }
 
 .bill-details {
-    width: 50%;
+  width: 50%;
+}
+
+@media screen and (min-width: 320px) and (max-width: 720px) {
+  .bill-image {
+    display: none;
+  }
+
+  .bill-container {
+    position: absolute;
+    overflow-y: scroll;
+    top: 150px;
+    width: 80%;
+    height: 50%;
+  }
+
+  .bill-details {
+    width: 95%;
+  }
 }

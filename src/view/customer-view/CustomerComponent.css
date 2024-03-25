@@ -4,8 +4,7 @@
     height: calc(100vh - 90px);
 }
 .customer-button {
-    width: 100px;
-    height: 40px;
+  padding: 5px;
     text-align: center;
     background-color: rgb(255, 236, 95);
     box-shadow: 1px 1px 10px rgb(179, 179, 179);
@@ -36,4 +35,17 @@
   .customer-header {
       color: rgb(110, 15, 47);
   }
+
+  @media screen and (min-width: 320px) and (max-width: 720px) {
+  .customer-image {
+    display: none;
+  }
+
+  .customer-items-container {
+    border-radius: 10px;
+    box-shadow: 3px 3px 15px grey;
+    width: 60%;
+    height: 30%;
+  }  
+}
   

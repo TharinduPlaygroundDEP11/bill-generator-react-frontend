@@ -1,6 +1,4 @@
 .dashboard-button {
-  width: 200px;
-  height: 50px;
   text-align: center;
   background-color: rgb(255, 236, 95);
   box-shadow: 1px 1px 10px rgb(179, 179, 179);
@@ -30,4 +28,17 @@
 
 .dashboard-header {
     color: rgb(110, 15, 47);
+}
+
+@media screen and (min-width: 320px) and (max-width: 720px) {
+  .dashboard-image {
+    display: none;
+  }
+
+  .dashboard-items-container {
+    border-radius: 10px;
+    box-shadow: 3px 3px 15px grey;
+    width: 55%;
+    height: 30%;
+  }  
 }
