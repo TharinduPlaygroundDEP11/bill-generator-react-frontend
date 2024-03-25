@@ -1,0 +1,13 @@
+.bill-bg {
+    background-color: rgb(219, 219, 219);
+}
+
+.bill-container {
+    position: absolute;
+    top: 90px;
+    width: 50%;
+    height: 80%;
+}
+.bill-header {
+    width: 100%;
+}

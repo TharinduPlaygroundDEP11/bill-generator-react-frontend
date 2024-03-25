@@ -31,15 +31,7 @@ function AdminComponent() {
               />
               <label htmlFor="floatingInput">Account Number</label>
             </div>
-            <div className="date-picker mb-3">
-              <DatePicker
-                className="form-control"
-                placeholderText="Select Reading Date"
-                selected={selectedDate}
-                onChange={handleDateChange}
-                dateFormat="dd-MM-yyyy"
-              />
-            </div>
+    
             <div className="form-floating mb-3">
               <input
                 type="number"
@@ -50,6 +42,16 @@ function AdminComponent() {
               <label htmlFor="floatingInput">Meter Reading</label>
             </div>
 
+            <div className="date-picker mb-3">
+              <DatePicker
+                className="form-control"
+                placeholderText="Select Reading Date"
+                selected={selectedDate}
+                onChange={handleDateChange}
+                dateFormat="dd-MM-yyyy"
+              />
+            </div>
+            
             <div className="d-flex align-items-center gap-3 mt-2">
               <div
                 className="admin-button text-center d-flex align-items-center justify-content-center border rounded-2"

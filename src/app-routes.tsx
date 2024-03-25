@@ -3,6 +3,7 @@ import AdminComponent from "./view/admin-view/AdminComponent";
 import CustomerComponent from "./view/customer-view/CustomerComponent";
 import Dashboard from "./view/dashboard/Dashboard";
 import Main from "./view/main/Main";
+import Bill from "./view/bill/Bill";
 
 const appRoutes: RouteObject[] = [
     {
@@ -19,8 +20,12 @@ const appRoutes: RouteObject[] = [
     },
     {
         path: 'user',
-        Component: CustomerComponent
+        Component: CustomerComponent,
     },
+    {
+        path: 'bill',
+        Component: Bill
+    }
 ];
 
 const routes: RouteObject[] = [
