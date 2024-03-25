@@ -4,6 +4,7 @@
     height: calc(100vh - 90px);
 }
 .admin-button {
+  width: 60px;
     padding: 5px;
     text-align: center;
     background-color: rgb(255, 236, 95);

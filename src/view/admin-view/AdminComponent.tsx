@@ -16,10 +16,13 @@ function AdminComponent() {
   };
 
   const handleSaveClick = async () => {
-    const year = selectedDate?.getFullYear();
-    const month = ('0' + (selectedDate!.getMonth() + 1)).slice(-2);
-    const day = ('0' + selectedDate?.getDate()).slice(-2);
-    const formattedDate = `${year}-${month}-${day}`;
+    let formattedDate = "";
+    if (selectedDate !== null) {
+      const year = selectedDate?.getFullYear();
+      const month = ("0" + (selectedDate!.getMonth() + 1)).slice(-2);
+      const day = ("0" + selectedDate?.getDate()).slice(-2);
+      formattedDate = `${year}-${month}-${day}`;
+    }
     try {
       const response = await fetch("http://localhost:8000/api/save", {
         method: "POST",
@@ -32,7 +35,7 @@ function AdminComponent() {
           value: reading,
         }),
       });
-  
+
       if (response.status === 201) {
         navigate("../home");
         Swal.fire({
@@ -51,7 +54,7 @@ function AdminComponent() {
           showConfirmButton: false,
           timer: 2000,
         });
-        console.log(response);  
+        console.log(response);
       }
     } catch (error) {
       Swal.fire({
