@@ -22,7 +22,7 @@ function CustomerComponent() {
       return;
     } else {
       try {
-        const response = await axios.get(
+        await axios.get(
           `http://localhost:8000/api/get/${accountNumber}`
         );
         billStore.setValues(+accountNumber);
