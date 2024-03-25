@@ -7,7 +7,7 @@ import Swal from "sweetalert2";
 
 function AdminComponent() {
   const navigate = useNavigate();
-  const [accountNumber, setAccountNumber] = useState('');
+  const [accountNumber, setAccountNumber] = useState("");
   const [reading, setReading] = useState(0);
   const [selectedDate, setSelectedDate] = useState<Date | null>(null);
 
@@ -16,7 +16,10 @@ function AdminComponent() {
   };
 
   const handleSaveClick = async () => {
-    const formattedDate = selectedDate?.toISOString().slice(0, 10);
+    const year = selectedDate?.getFullYear();
+    const month = ('0' + (selectedDate!.getMonth() + 1)).slice(-2);
+    const day = ('0' + selectedDate?.getDate()).slice(-2);
+    const formattedDate = `${year}-${month}-${day}`;
     try {
       const response = await fetch("http://localhost:8000/api/save", {
         method: "POST",
@@ -76,18 +79,18 @@ function AdminComponent() {
                 className="form-control"
                 id="floatingInput"
                 placeholder="xxxxxxx"
-                onChange={(e)=>setAccountNumber(e.target.value)}
+                onChange={(e) => setAccountNumber(e.target.value)}
               />
               <label htmlFor="floatingInput">Account Number</label>
             </div>
-    
+
             <div className="form-floating mb-3">
               <input
                 type="number"
                 className="form-control"
                 id="floatingInput"
                 placeholder="xxxxxxx"
-                onChange={(e)=>setReading(+e.target.value)}
+                onChange={(e) => setReading(+e.target.value)}
               />
               <label htmlFor="floatingInput">Meter Reading</label>
             </div>
