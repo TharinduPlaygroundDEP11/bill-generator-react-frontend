@@ -63,14 +63,32 @@
 }
 
 @media screen and (min-width: 320px) and (max-width: 720px) {
-  .customer-image {
-    display: none;
-  }
-
   .customer-items-container {
     border-radius: 10px;
     box-shadow: 3px 3px 15px grey;
     width: 60%;
-    height: 30%;
+    height: 70%;
+    display: flex;
+    flex-direction: column-reverse;
+  }
+
+  .customer-image {
+    margin-top: 0;
+    height: 200px;
+    width: 220px;
+  }
+
+  .customer-button-container {
+    display: flex;
+    flex-direction: column-reverse;
+    margin-bottom: 0;
+  }
+
+  .customer-button {
+    height: 50px;
+    width: 130px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 }

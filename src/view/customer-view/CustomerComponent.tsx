@@ -66,7 +66,7 @@ function CustomerComponent() {
               <label htmlFor="floatingInput">Account Number</label>
             </div>
 
-            <div className="d-flex align-items-center gap-3 mt-2">
+            <div className="d-flex align-items-center gap-3 mt-2 customer-button-container">
               <div
                 className="customer-button"
                 onClick={() => navigate("../")}
