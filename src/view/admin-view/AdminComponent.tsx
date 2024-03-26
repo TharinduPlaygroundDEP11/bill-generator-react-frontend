@@ -71,7 +71,7 @@ function AdminComponent() {
           <div className="admin-image"></div>
 
           <div className="d-flex flex-column justify-content-center align-items-center gap-3">
-            <div className="admin-header fs-4 fw-bold">Add Meter Reading</div>
+            <div className="admin-header fs-4 fw-bold">New Meter Reading</div>
             <div className="form-floating mb-1">
               <input
                 type="text"

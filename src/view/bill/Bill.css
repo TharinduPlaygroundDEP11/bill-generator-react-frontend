@@ -44,3 +44,40 @@
     width: 95%;
   }
 }
+
+@media screen and (min-width: 720px) and (max-width: 820px) {
+  .bill-image {
+    width: 200px;
+    height: 200pxx;
+  }
+
+  .bill-container {
+    position: absolute;
+    overflow-y: scroll;
+    top: 100px;
+    width: 80%;
+    height: 80%;
+  }
+
+  .bill-body {
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: flex-start;
+  }
+  
+}
+
+@media screen and (min-width: 820px) and (max-width: 1000px){
+  .bill-image {
+    width: 300px;
+    height: 300pxx;
+  }
+
+  .bill-container {
+    position: absolute;
+    overflow-y: scroll;
+    top: 150px;
+    width: 85%;
+    height: 55%;
+  }
+}
