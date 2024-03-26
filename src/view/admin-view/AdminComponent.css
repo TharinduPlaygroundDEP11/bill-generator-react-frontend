@@ -1,61 +1,84 @@
 .admin-component {
-    position: absolute;
-    top: 90px;
-    height: calc(100vh - 90px);
+  position: absolute;
+  top: 90px;
+  height: calc(100vh - 90px);
 }
+
 .admin-button {
-  width: 60px;
-    padding: 5px;
-    text-align: center;
-    background-color: rgb(255, 236, 95);
-    box-shadow: 1px 1px 10px rgb(179, 179, 179);
+  cursor: pointer;
+  color: rgb(110, 15, 47);
+  text-transform: uppercase;
+  text-decoration: none;
+  text-align: center;
+  border: 2px solid rgb(110, 15, 47);
+  padding: 5px 3px;
+  font-size: 15px;
+  font-weight: bold;
+  background: transparent;
+  position: relative;
+  transition: all 0.5s;
+  overflow: hidden;
+  width: 100px;
+}
+
+.admin-button:hover {
+  color: white;
+}
+
+.admin-button::before {
+  content: "";
+  position: absolute;
+  height: 100%;
+  width: 0%;
+  top: 0;
+  left: -40px;
+  transform: skewX(45deg);
+  background-color: rgb(110, 15, 47);
+  z-index: -1;
+  transition: all 0.5s;
+}
+
+.admin-button:hover::before {
+  width: 160%;
+}
+
+.admin-items-container {
+  border-radius: 20px;
+  box-shadow: 3px 3px 15px grey;
+  width: 55%;
+  height: 80%;
+}
+
+.admin-image {
+  background-image: url("/src/assets/images/add-reading.png");
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  height: 300px;
+  width: 300px;
+}
+
+.admin-header {
+  color: rgb(110, 15, 47);
+}
+
+.date-picker {
+  z-index: 1000;
+}
+
+.number {
+  z-index: 1;
+}
+
+@media screen and (min-width: 320px) and (max-width: 720px) {
+  .admin-image {
+    display: none;
   }
-  
-  .admin-button:hover {
-      cursor: pointer;
-      background-color: rgb(238, 221, 89);
-      box-shadow: 3px 3px 10px rgb(179, 179, 179);
-    }
-  
+
   .admin-items-container {
     border-radius: 20px;
     box-shadow: 3px 3px 15px grey;
     width: 55%;
-    height: 80%;
+    height: 65%;
   }
-  
-  .admin-image {
-    background-image: url("/src/assets/images/add-reading.png");
-    background-position: center;
-    background-size: contain;
-    background-repeat: no-repeat;
-    height: 300px;
-    width: 300px;
-  }
-  
-  .admin-header {
-      color: rgb(110, 15, 47);
-  }
-
-  .date-picker {
-    z-index: 1000;
-  }
-
-  .number {
-    z-index: 1;
-  }
-
-  @media screen and (min-width: 320px) and (max-width: 720px) {
-    .admin-image {
-      display: none;
-    }
-
-    .admin-items-container {
-      border-radius: 20px;
-      box-shadow: 3px 3px 15px grey;
-      width: 55%;
-      height: 65%;
-    }
-  }
-  
-  
+}

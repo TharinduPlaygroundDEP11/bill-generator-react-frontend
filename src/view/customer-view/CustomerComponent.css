@@ -3,18 +3,6 @@
   top: 90px;
   height: calc(100vh - 90px);
 }
-/* .customer-button {
-  padding: 5px;
-    text-align: center;
-    background-color: rgb(255, 236, 95);
-    box-shadow: 1px 1px 10px rgb(179, 179, 179);
-  }
-  
-  .customer-button:hover {
-      cursor: pointer;
-      background-color: rgb(238, 221, 89);
-      box-shadow: 3px 3px 10px rgb(179, 179, 179);
-    } */
 
 .customer-button {
   cursor: pointer;

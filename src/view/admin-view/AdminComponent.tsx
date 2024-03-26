@@ -72,7 +72,7 @@ function AdminComponent() {
 
           <div className="d-flex flex-column justify-content-center align-items-center gap-3">
             <div className="admin-header fs-4 fw-bold">Add Meter Reading</div>
-            <div className="form-floating mb-2">
+            <div className="form-floating mb-1">
               <input
                 type="text"
                 className="form-control"
@@ -83,7 +83,7 @@ function AdminComponent() {
               <label htmlFor="floatingInput">Account Number</label>
             </div>
 
-            <div className="form-floating mb-2">
+            <div className="form-floating mb-1">
               <input
                 type="number"
                 className="form-control"
@@ -94,7 +94,7 @@ function AdminComponent() {
               <label htmlFor="floatingInput">Meter Reading</label>
             </div>
 
-            <div className="date-picker mb-2">
+            <div className="date-picker mb-1">
               <DatePicker
                 className="form-control"
                 placeholderText="Select Reading Date"
@@ -103,16 +103,15 @@ function AdminComponent() {
                 dateFormat="yyyy-MM-dd"
               />
             </div>
-
-            <div className="d-flex align-items-center gap-3 mt-2">
+            <div className="d-flex align-items-center gap-2 mt-2">
               <div
-                className="admin-button text-center d-flex align-items-center justify-content-center border rounded-2"
+                className="admin-button"
                 onClick={() => navigate("../")}
               >
                 Cancel
               </div>
               <div
-                className="admin-button text-center d-flex align-items-center justify-content-center border rounded-2"
+                className="admin-button"
                 onClick={handleSaveClick}
               >
                 Save
