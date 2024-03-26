@@ -3,13 +3,27 @@ import "./AdminComponent.css";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { useNavigate } from "react-router-dom";
-import Swal from "sweetalert2";
+import { ToastContainer, toast } from "react-toastify";
 
 function AdminComponent() {
   const navigate = useNavigate();
   const [accountNumber, setAccountNumber] = useState("");
   const [reading, setReading] = useState(0);
   const [selectedDate, setSelectedDate] = useState<Date | null>(null);
+
+  const toastError = (message:string)=>{
+    toast.error(`${message}`, {
+      position: "top-center",
+      theme: "colored"
+    });
+  };
+
+  const toastSuccess = (message:string)=>{
+    toast.success(`${message}`, {
+      position: "top-center",
+      theme: "colored"
+    });
+  };
 
   const handleDateChange = (date: Date) => {
     setSelectedDate(date);
@@ -37,46 +51,28 @@ function AdminComponent() {
       });
 
       if (response.status === 201) {
-        navigate("../home");
-        Swal.fire({
-          position: "center",
-          icon: "success",
-          title: "Successfully Saved Reading",
-          showConfirmButton: false,
-          timer: 2500,
-        });
+        toastSuccess("Successfully Saved Reading");
+        setTimeout(() => {
+          navigate("../home"); 
+        }, 1500);
       } else {
-        Swal.fire({
-          position: "center",
-          icon: "error",
-          title: "Error!",
-          text: "Invalid Input values!",
-          showConfirmButton: false,
-          timer: 2000,
-        });
-        console.log(response);
+        toastError("Invalid Input values!");
       }
     } catch (error) {
-      Swal.fire({
-        position: "center",
-        icon: "error",
-        title: "Error!",
-        text: "Check your inputs, They can't be empty!",
-        showConfirmButton: false,
-        timer: 2000,
-      });
+      toastError("Check your inputs, They can't be empty!");
     }
   };
 
   return (
     <>
-      <div className="admin-component d-flex vw-100 justify-content-center align-items-center">
+    <ToastContainer closeOnClick autoClose={1000}/>
+      <div className="admin-component d-flex vw-100 justify-content-center align-items-center red-hat">
         <div className="d-flex justify-content-around align-items-center gap-3 admin-items-container">
           <div className="admin-image"></div>
 
           <div className="d-flex flex-column justify-content-center align-items-center gap-3">
             <div className="admin-header fs-4 fw-bold">Add Meter Reading</div>
-            <div className="form-floating mb-3">
+            <div className="form-floating mb-2">
               <input
                 type="text"
                 className="form-control"
@@ -87,7 +83,7 @@ function AdminComponent() {
               <label htmlFor="floatingInput">Account Number</label>
             </div>
 
-            <div className="form-floating mb-3">
+            <div className="form-floating mb-2">
               <input
                 type="number"
                 className="form-control"
@@ -98,7 +94,7 @@ function AdminComponent() {
               <label htmlFor="floatingInput">Meter Reading</label>
             </div>
 
-            <div className="date-picker mb-3">
+            <div className="date-picker mb-2">
               <DatePicker
                 className="form-control"
                 placeholderText="Select Reading Date"
@@ -125,6 +121,7 @@ function AdminComponent() {
           </div>
         </div>
       </div>
+      
     </>
   );
 }

@@ -18,7 +18,7 @@ function Bill() {
   } = useBillStore();
   return (
     <>
-      <div className="bill-bg vw-100 vh-100 d-flex justify-content-center align-items-center">
+      <div className="bill-bg vw-100 vh-100 d-flex justify-content-center align-items-center red-hat">
         <div className="bill-container d-flex flex-column shadow-lg p-3 mb-5 bg-body-tertiary rounded">
           <div className="bill-header d-flex justify-content-between border-bottom pb-2 mb-2">
             <div className="fs-4 fw-bold">Bill of {customerName}</div>
