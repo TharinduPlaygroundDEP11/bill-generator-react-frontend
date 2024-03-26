@@ -50,10 +50,10 @@ function CustomerComponent() {
   return (
     <>
       <div className="customer-component d-flex vw-100 justify-content-center align-items-center red-hat">
-        <div className="d-flex justify-content-around align-items-center gap-3 customer-items-container">
+        <div className="d-flex justify-content-evenly align-items-center gap-2 customer-items-container">
           <div className="customer-image"></div>
 
-          <div className="d-flex flex-column justify-content-center align-items-center gap-3">
+          <div className="d-flex flex-column justify-content-center align-items-center gap-2">
             <div className="customer-header fs-4 fw-bold">View Your Bill</div>
             <div className="form-floating mb-3">
               <input
