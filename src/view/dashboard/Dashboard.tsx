@@ -7,7 +7,7 @@ function Dashboard() {
   return (
     <>
       <div className="d-flex vw-100 vh-100 justify-content-center align-items-center red-hat">
-        <div className="d-flex justify-content-center align-items-center gap-3 dashboard-items-container">
+        <div className="d-flex justify-content-evenly align-items-center gap-3 dashboard-items-container p-2">
           <div className="dashboard-image"></div>
 
           <div className="d-flex flex-column justify-content-center align-items-center gap-3">
