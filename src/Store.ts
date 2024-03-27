@@ -1,8 +1,9 @@
 import axios from "axios";
-import Swal from "sweetalert2";
+import { toast } from "react-toastify";
 import { create } from "zustand";
 
 type BillStore = {
+  accountNumber: number;
   customerName: string;
   lastDate: string;
   lastValue: number;
@@ -16,7 +17,15 @@ type BillStore = {
   setValues:(accNumber:number)=>void
 };
 
+const toastError = (message:string)=>{
+  toast.error(`${message}`, {
+    position: "top-center",
+    theme: "colored"
+  });
+};
+
 export const useBillStore = create<BillStore>((set) => ({
+  accountNumber: 0,
   customerName: "",
   lastDate: "",
   lastValue: 0,
@@ -28,11 +37,11 @@ export const useBillStore = create<BillStore>((set) => ({
   thirdRangeAmount: 0,
   totalAmount: 0,
   setValues: async (accNumber) => {
-    
     try {
       const response = await axios.get(`http://localhost:8000/api/get/${accNumber}`);
       const { data } = response;
       set({
+        accountNumber: data.number,
         customerName: data.name,
         lastDate: data.lastDate,
         lastValue: data.lastValue,
@@ -45,13 +54,7 @@ export const useBillStore = create<BillStore>((set) => ({
         totalAmount: data.totalAmount,
       });
     } catch (error) {
-        Swal.fire({
-            icon: "error",
-            title: "Error!",
-            text: "Invalid Acount Number!",
-            showConfirmButton: false,
-            timer: 1800
-          });
+      toastError("Invalid account number");
     }
   },
 }));

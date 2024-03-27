@@ -16,7 +16,7 @@ function Dashboard() {
               className="dashboard-button"
               onClick={() => navigate("../admin")}
             >
-              <i className="bi bi-plus-lg"></i> Reading
+              <i className="bi bi-file-earmark-plus"></i> Reading
             </button>
             <button
               className="dashboard-button"
