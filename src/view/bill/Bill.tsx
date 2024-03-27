@@ -50,7 +50,7 @@ function Bill() {
 
     pdf.setFont("arial",  'bold');
     pdf.setFontSize(18);
-    pdf.text("Electricity Bill", 150, 30);
+    pdf.text("Electricity Bill", 160, 30);
 
     pdf.setFont("arial", "normal");
     pdf.setFontSize(12);
