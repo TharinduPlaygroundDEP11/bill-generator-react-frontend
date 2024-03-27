@@ -3,7 +3,7 @@ import { useBillStore } from "../../Store";
 import "./Bill.css";
 import jsPDF from "jspdf";
 import { ToastContainer, toast } from "react-toastify";
-import 'jspdf-autotable'
+import 'jspdf-autotable';
 
 function Bill() {
   const navigate = useNavigate();
@@ -48,12 +48,12 @@ function Bill() {
 
     const pageWidth = pdf.internal.pageSize.getWidth();
 
-    pdf.setFont("arial",  'bold');
-    pdf.setFontSize(18);
-    pdf.text("Electricity Bill", 160, 30);
+    pdf.setFont("Courier",  'bold');
+    pdf.setFontSize(14);
+    pdf.text("Electricity Bill", 130, 30);
 
-    pdf.setFont("arial", "normal");
-    pdf.setFontSize(12);
+    pdf.setFont("Courier", "normal");
+    pdf.setFontSize(11);
 
     pdf.text(`Invoice Number : ${invoiceNumber}`, 60, 70);
     pdf.text(`Invoice Date : ${formatDate(today)}`, 60, 90); 
@@ -86,7 +86,7 @@ function Bill() {
     pdf.text(`${totalUnits}`, (pageWidth - 60 - (pdf.getStringUnitWidth(`${totalUnits}`) * 12 / pdf.internal.scaleFactor)), 340);
 
 
-    pdf.setFont("arial",  'bold');
+    pdf.setFont("Courier",  'bold');
     pdf.setFontSize(14);
     pdf.text('Total Amount : ', 60, 380);
     pdf.text(`Rs.${totalAmount}`, (pageWidth - 60 - (pdf.getStringUnitWidth(`Rs.${totalAmount}`) * 14 / pdf.internal.scaleFactor)), 380);
