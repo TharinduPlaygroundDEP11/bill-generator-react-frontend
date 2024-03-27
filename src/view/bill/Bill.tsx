@@ -21,13 +21,6 @@ function Bill() {
     totalAmount,
   } = useBillStore();
 
-  const toastSuccess = (message: string) => {
-    toast.success(`${message}`, {
-      position: "top-center",
-      theme: "colored",
-    });
-  };
-
   const handlePayClick = () => {
     toast.warning("The payment options not implemented yet!", {
       position: "top-center",
@@ -62,43 +55,48 @@ function Bill() {
     pdf.setFont("arial", "normal");
     pdf.setFontSize(12);
 
-    pdf.text(`Invoice Number : ${invoiceNumber}`, 30, 55);
-    pdf.text(`Invoice Date : ${formatDate(today)}`, 30, 75); 
-    pdf.text(`Due Date : ${formatDate(dueDate)}`, 30, 95);
-    pdf.text(`Account Number : ${accountNumber}`, 30, 115);
-    pdf.text(`Customer Name : ${accountNumber}`, 30, 135);
+    pdf.text(`Invoice Number : ${invoiceNumber}`, 60, 70);
+    pdf.text(`Invoice Date : ${formatDate(today)}`, 60, 90); 
+    pdf.text(`Due Date : ${formatDate(dueDate)}`, 60, 110);
+    pdf.text(`Account Number : ${accountNumber}`, 60, 130);
+    pdf.text(`Customer Name : ${customerName}`, 60, 150);
     
-    pdf.text("Last Reading Date : ", 60, 180);
-    pdf.text(`${lastDate}`, (pageWidth - 60 - (pdf.getStringUnitWidth(`${lastDate}`) * 12 / pdf.internal.scaleFactor)), 180);
+    pdf.text("Last Reading Date : ", 60, 200);
+    pdf.text(`${lastDate}`, (pageWidth - 60 - (pdf.getStringUnitWidth(`${lastDate}`) * 12 / pdf.internal.scaleFactor)), 200);
     
-    pdf.text('Last Reading Value : ', 60, 200);
-    pdf.text(`${lastValue}`, (pageWidth - 60 - (pdf.getStringUnitWidth(`${lastValue}`) * 12 / pdf.internal.scaleFactor)), 200);
+    pdf.text('Last Reading Value : ', 60, 220);
+    pdf.text(`${lastValue}`, (pageWidth - 60 - (pdf.getStringUnitWidth(`${lastValue}`) * 12 / pdf.internal.scaleFactor)), 220);
     
-    pdf.text('Previous Reading Date : ', 60, 220);
-    pdf.text(`${previousDate}`, (pageWidth - 60 - (pdf.getStringUnitWidth(`${previousDate}`) * 12 / pdf.internal.scaleFactor)), 220);
+    pdf.text('Previous Reading Date : ', 60, 240);
+    pdf.text(`${previousDate}`, (pageWidth - 60 - (pdf.getStringUnitWidth(`${previousDate}`) * 12 / pdf.internal.scaleFactor)), 240);
 
-    pdf.text('Previous Reading Value : ', 60, 240);
-    pdf.text(`${previousValue}`, (pageWidth - 60 - (pdf.getStringUnitWidth(`${previousValue}`) * 12 / pdf.internal.scaleFactor)), 240);
+    pdf.text('Previous Reading Value : ', 60, 260);
+    pdf.text(`${previousValue}`, (pageWidth - 60 - (pdf.getStringUnitWidth(`${previousValue}`) * 12 / pdf.internal.scaleFactor)), 260);
     
-    pdf.text('First Range Amount : ', 60, 260);
-    pdf.text(`Rs.${firstRangeAmount}`, (pageWidth - 60 - (pdf.getStringUnitWidth(`Rs.${firstRangeAmount}`) * 12 / pdf.internal.scaleFactor)), 260);
+    pdf.text('First Range Amount : ', 60, 280);
+    pdf.text(`Rs.${firstRangeAmount}`, (pageWidth - 60 - (pdf.getStringUnitWidth(`Rs.${firstRangeAmount}`) * 12 / pdf.internal.scaleFactor)), 280);
 
-    pdf.text('Second Range Amount : ', 60, 280);
-    pdf.text(`Rs.${secondRangeAmount}`, (pageWidth - 60 - (pdf.getStringUnitWidth(`Rs.${secondRangeAmount}`) * 12 / pdf.internal.scaleFactor)), 280);
+    pdf.text('Second Range Amount : ', 60, 300);
+    pdf.text(`Rs.${secondRangeAmount}`, (pageWidth - 60 - (pdf.getStringUnitWidth(`Rs.${secondRangeAmount}`) * 12 / pdf.internal.scaleFactor)), 300);
     
-    pdf.text('Third Range Amount : ', 60, 300);
-    pdf.text(`Rs.${thirdRangeAmount}`, (pageWidth - 60 - (pdf.getStringUnitWidth(`Rs.${thirdRangeAmount}`) * 12 / pdf.internal.scaleFactor)), 300);
+    pdf.text('Third Range Amount : ', 60, 320);
+    pdf.text(`Rs.${thirdRangeAmount}`, (pageWidth - 60 - (pdf.getStringUnitWidth(`Rs.${thirdRangeAmount}`) * 12 / pdf.internal.scaleFactor)), 320);
 
-    pdf.text('Total Units : ', 60, 320);
-    pdf.text(`${totalUnits}`, (pageWidth - 60 - (pdf.getStringUnitWidth(`${totalUnits}`) * 12 / pdf.internal.scaleFactor)), 320);
+    pdf.text('Total Units : ', 60, 340);
+    pdf.text(`${totalUnits}`, (pageWidth - 60 - (pdf.getStringUnitWidth(`${totalUnits}`) * 12 / pdf.internal.scaleFactor)), 340);
 
 
     pdf.setFont("arial",  'bold');
     pdf.setFontSize(14);
-    pdf.text('Total Amount : ', 60, 360);
-    pdf.text(`Rs.${totalAmount}`, (pageWidth - 60 - (pdf.getStringUnitWidth(`Rs.${totalAmount}`) * 14 / pdf.internal.scaleFactor)), 360);
+    pdf.text('Total Amount : ', 60, 380);
+    pdf.text(`Rs.${totalAmount}`, (pageWidth - 60 - (pdf.getStringUnitWidth(`Rs.${totalAmount}`) * 14 / pdf.internal.scaleFactor)), 380);
 
     pdf.save("ceb-bill.pdf");
+
+    toast.success('Your bill is being downloaded', {
+      position: "top-center",
+      theme: "colored",
+    });
   };
 
   return (
